@@ -42,7 +42,7 @@ export default class Menu extends Component {
         axios.get(BACKEND_URL + 'menu/')
         .then(response => {
             this.setState({
-                productss: response.data,
+                products: response.data,
                 loading: false
             })
             console.log('this is the list of productss')
