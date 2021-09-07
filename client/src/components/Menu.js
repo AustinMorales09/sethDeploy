@@ -9,19 +9,9 @@ import BACKEND_URL from '../config';
 
 const Product = (props) => {
     return (
-        <div className='allproducts' style={{backgroundColor:'green'}}>
-            <div className='productsCard'>
-                {/* <div className='cardImage'>
-                    <img className='productsImage' src={props.products.name} alt=' product' />
-                </div> */}
-                <div className='container'>
-                    <div className='text-name' style={{color:'red'}}>{props.products.name}</div>
-                
-                    <div className='website'>
-                        <a className='link-site' href={props.products.description} target="_blank" rel="noreferrer">Website</a>
-                    </div>
-                </div>
-            </div>
+        <div className="all-products">
+        <h1>Products</h1>
+            {props.product.name}
         </div>
     )
 }
@@ -33,7 +23,7 @@ export default class Menu extends Component {
         this.state={
             products: [],
             loading: true
-        }
+        };
     }
 
     componentDidMount() {
@@ -61,7 +51,7 @@ export default class Menu extends Component {
             this.state.loading === false ? (
                 <div className='row'>
                 <div className='attractionsContainer'>
-                    <h2 className='attractionsHeader'>Attractions</h2>
+                    <h2 className='attractionsHeader'>Products</h2>
                     <div className='attractionsInnerContainer'>
                         {this.productsList()}
                     </div>
