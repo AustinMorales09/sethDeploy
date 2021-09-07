@@ -34,7 +34,7 @@ connection.once('open', () => {
 
 const productsRouter = require('./routes/products');
 
-app.use('/products', productsRouter);
+app.use('/menu', productsRouter);
 
 
 
