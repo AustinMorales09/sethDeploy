@@ -39,7 +39,7 @@ export default class Menu extends Component {
     }
 
     componentDidMount() {
-        axios.get(BACKEND_URL + 'products/')
+        axios.get(BACKEND_URL + 'menu/')
         .then(response => {
             this.setState({
                 productss: response.data,
