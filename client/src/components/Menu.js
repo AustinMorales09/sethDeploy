@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -15,10 +15,8 @@ const Product = (props) => {
                     <img className='productsImage' src={props.products.name} alt=' product' />
                 </div> */}
                 <div>
-                    <div className='text-name'>{props.products.name}</div>
-                    <div className='text-link'>
-                        <Link className='link-details' Link to={"menu/" + props.products._id}>Details</Link>
-                    </div>
+                    <div className='text-name' style={{color:'red'}}>{props.products.name}</div>
+                
                     <div className='website'>
                         <a className='link-site' href={props.products.description} target="_blank" rel="noreferrer">Website</a>
                     </div>
@@ -39,13 +37,14 @@ export default class Menu extends Component {
     }
 
     componentDidMount() {
-        axios.get(BACKEND_URL + 'menu/')
+        axios.get(BACKEND_URL +'products/')
         .then(response => {
             this.setState({
                 products: response.data,
                 loading: false
             })
             console.log('this is the list of productss')
+            console.log(this.state);
         })
         .catch((error) => {
             console.log(error)
