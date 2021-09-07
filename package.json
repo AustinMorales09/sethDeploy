@@ -1,5 +1,5 @@
 {
-  "homepage": "/build",
+  "homepage": "",
   "name": "stylebyform",
   "version": "0.1.0",
   "private": true,
@@ -8,7 +8,9 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "aos": "^2.3.4",
+    "axios": "^0.21.4",
     "bootstrap": "^5.1.0",
+    "concurrently": "^6.2.1",
     "cors": "^2.8.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -17,11 +19,14 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start-client": "react-scripts start",
-  "build": "react-scripts build && (cd backend && npm install)",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject",
-  "start": "cd backend && npm start"
+    "build": "npm run build",
+    "install-client": "npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "client": "npm start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "dev": "concurrently \"npm run client\" \"cd backend && npm start\""
   },
   "eslintConfig": {
     "extends": [
@@ -44,9 +49,5 @@
   "engines": {
     "node": "12.17.0",
     "npm": "7.20.6"
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "App.js",
-  "author": "Seth the Dev",
-  "license": "ISC"
+  }
 }

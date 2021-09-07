@@ -1,11 +1,78 @@
-import React from 'react'
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
-const Menu = () => {
+
+import BACKEND_URL from '../config';
+
+
+
+const Product = (props) => {
     return (
-        <div>
-            <h1>Menu Page</h1>
+        <div className='allproductss'>
+            <div className='productssCard'>
+                <div className='cardImage'>
+                    <img className='productsImage' src={props.products.imageURL} alt=' product' />
+                </div>
+                <div>
+                    <div className='text-name'>{props.products.name}</div>
+                    <div className='text-link'>
+                        <Link className='link-details' Link to={"productss/" + props.products._id}>Details</Link>
+                    </div>
+                    <div className='website'>
+                        <a className='link-site' href={props.products.website} target="_blank" rel="noreferrer">Website</a>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default Menu
+
+export default class Menu extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            products: [],
+            loading: true
+        }
+    }
+
+    componentDidMount() {
+        axios.get(BACKEND_URL + 'products/')
+        .then(response => {
+            this.setState({
+                productss: response.data,
+                loading: false
+            })
+            console.log('this is the list of productss')
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+    }
+
+    productsList() {
+        return this.state.products.map((currentProduct) => {
+            return <Product product={currentProduct} key={currentProduct._id} />
+        })
+    }
+    render() {
+        return (
+            this.state.loading === false ? (
+                <div className='row'>
+                <div className='attractionsContainer'>
+                    <h2 className='attractionsHeader'>Attractions</h2>
+                    <div className='attractionsInnerContainer'>
+                        {this.productsList()}
+                    </div>
+                </div>
+                </div>
+            ) : (
+                <div>
+                    <h1 className="loading-spinner">Loading...</h1>
+                </div>
+            )
+        )
+    }
+}

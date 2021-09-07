@@ -16,9 +16,6 @@ app.use(express.json());
 
 const uri = process.env.MONGO_URL;
 
-const productsRouter = require('./routes/products');
-
-app.use('/products', productsRouter);
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true  }
 )
@@ -30,12 +27,15 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true  }
 .catch((err) => console.log(err));
 
 
-
-
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
+
+const productsRouter = require('./routes/products');
+
+app.use('/products', productsRouter);
+
 
 
 
