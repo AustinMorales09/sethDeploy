@@ -36,7 +36,8 @@ const productsRouter = require('./routes/products');
 
 app.use('/menu', productsRouter);
 
-
-
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'))
+}
 
 
