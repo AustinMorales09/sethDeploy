@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 
 router.route('/').get((req, res) => {
     Product.find()
-    .then(products => res.json(products))
+    .then(product => res.json(product))
     .catch((err) => console.log(err));
 
 });

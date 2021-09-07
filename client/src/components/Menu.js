@@ -9,12 +9,12 @@ import BACKEND_URL from '../config';
 
 const Product = (props) => {
     return (
-        <div className='allproductss'>
-            <div className='productssCard'>
+        <div className='allproducts' style={{backgroundColor:'green'}}>
+            <div className='productsCard'>
                 {/* <div className='cardImage'>
                     <img className='productsImage' src={props.products.name} alt=' product' />
                 </div> */}
-                <div>
+                <div className='container'>
                     <div className='text-name' style={{color:'red'}}>{props.products.name}</div>
                 
                     <div className='website'>
