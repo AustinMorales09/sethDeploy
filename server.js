@@ -25,7 +25,7 @@ mongoose.connect(uri, { useNewUrlParser: true,  useUnifiedTopology: true  }
   })
 
 
-const productsRouter = require('./routes/products');
+const productsRouter = require('./routes/Products');
 
 app.use('/products', productsRouter);
 
