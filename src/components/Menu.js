@@ -11,16 +11,16 @@ const Product = (props) => {
     return (
         <div className='allproductss'>
             <div className='productssCard'>
-                <div className='cardImage'>
-                    <img className='productsImage' src={props.products.imageURL} alt=' product' />
-                </div>
+                {/* <div className='cardImage'>
+                    <img className='productsImage' src={props.products.name} alt=' product' />
+                </div> */}
                 <div>
                     <div className='text-name'>{props.products.name}</div>
                     <div className='text-link'>
-                        <Link className='link-details' Link to={"productss/" + props.products._id}>Details</Link>
+                        <Link className='link-details' Link to={"menu/" + props.products._id}>Details</Link>
                     </div>
                     <div className='website'>
-                        <a className='link-site' href={props.products.website} target="_blank" rel="noreferrer">Website</a>
+                        <a className='link-site' href={props.products.description} target="_blank" rel="noreferrer">Website</a>
                     </div>
                 </div>
             </div>
