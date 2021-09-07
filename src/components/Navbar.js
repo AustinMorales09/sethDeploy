@@ -31,7 +31,7 @@ const Navbar = () => {
           <Link className="nav-link" to={{pathname: "https://www.facebook.com/stylebyform"}} target="_blank"><i class="fab fa-facebook-f"></i></Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to={{pathname: "https://www.instagram.com/stylebyform"}} target="_blank"><i class="fab fa-instagram"></i></Link>
+          <Link className="nav-link" to={{pathname: "https://www.instagram.com/stylebyform"}} target="_blank"><i className="fab fa-instagram"></i></Link>
         </li>
       </ul>
     </div>
